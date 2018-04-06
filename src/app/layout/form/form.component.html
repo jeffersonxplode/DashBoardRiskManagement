@@ -1,8 +1,7 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Novo Risco'" [icon]="'fa-edit'"></app-page-header>
 
-
-            <form #riskForm = "ngForm">
+            <form (ngSubmit)="createRisk(risk)" #riskForm = "ngForm">
                 <div class="form-group">
                     <label for="name"> Risco </label>
                     <input class="form-control"
@@ -36,6 +35,28 @@
                 </div>
 
                 {{risk.description}}
+
+                <div class="form-group">
+                    <label for="category"> Categoria </label>
+                    <select
+                        class="form-control"
+                        id="category"
+                        required
+                        name="category"
+                        #category='ngModel'
+                        [(ngModel)]="risk.category"
+                    >
+
+                        <option> Estratégico </option>
+                        <option> Operacional </option>
+                        <option> Comunicação </option>
+                        <option> Conformidade </option>
+
+                    </select>
+
+                </div>
+
+
 
                 <div class="form-group">
                     <label for="probability_of_happen"> Probabilidade de acontecer </label>
@@ -107,7 +128,17 @@
                     O tratamento do risco é necessario
                 </div>
 
-                <button type="submit" class="btn btn-secondary">Submeter</button>
+                <button type="submit" class="btn btn-secondary"
+                        [disabled]="!riskForm.valid"
+                        [hidden]="submitted" >Submeter</button>
+                <div
+                    [hidden]="!submitted"
+                    class="alert alert-success"
+                    role="alert"
+                >
+                    Risco criado com sucesso <a class="alert-link" routerLink="/tables"> Veja todos os riscos</a>
+                </div>
+
                 <button type="reset" class="btn btn-secondary">Limpar Campos</button>
 
             </form>

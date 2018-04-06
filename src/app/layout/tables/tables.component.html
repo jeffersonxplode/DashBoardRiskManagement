@@ -2,7 +2,7 @@
     <app-page-header [heading]="'Lista de Riscos'" [icon]="'fa-table'"></app-page-header>
         <div class="card mb-3">
             <div class="card-header">
-                Basic example
+                Tabela de riscos
             </div>
             <div class="card-body table-responsive">
                 <table class="table">
@@ -15,7 +15,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let risk of risks" [ngClass]="{'table-danger': risk.severity > 1}">
+                        <tr *ngFor="let risk of risks" [ngClass]="{ 'extremo': risk.severity > 1,
+                                                                    'alto':risk.severity < 0.9 && risk.severity > 0.1,
+                                                                    'moderado':risk.severity > 0.05 && risk.severity <= 0.09,
+                                                                    'baixo':risk.severity <= 0.05
+                                                                   }" >
                                 <th> {{ risk.name }} </th>
                                 <td> {{ risk.probability_of_happen}} </td>
                                 <td> {{ risk.impact }} </td>
