@@ -1,76 +1,176 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Charts'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <app-page-header [heading]="'Estatísticas'" [icon]="'fa-bar-chart-o'"></app-page-header>
     <div class="row">
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Bar Chart
+                    Matrix de Risco Estratégico
                 </div>
                 <div class="card-body">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    <p class="vertical-text"> <i class="fa fa-arrow-left fa-fw"></i> Probabilidade </p>
+                    <table class="table" cellpadding="10">
+                        <tbody>
+                        <tr>
+                            <th bgcolor="orange"> 0 </th>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="yellow"> 0 </th>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="green"> 0 </td>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p align="center"> Impacto <i class="fa fa-arrow-right fa-fw"></i></p>
                 </div>
             </div>
         </div>
+
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Doughnut Chart
+                    Matrix de Risco Operacional
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <p class="vertical-text"> <i class="fa fa-arrow-left fa-fw"></i> Probabilidade </p>
+                    <table class="table" cellpadding="10">
+                        <tbody>
+                        <tr>
+                            <th bgcolor="orange"> 0 </th>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="yellow"> 0 </th>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="green"> 0 </td>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p align="center"> Impacto <i class="fa fa-arrow-right fa-fw"></i></p>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Radar Chart
+                    Matrix de Risco de Conformidade
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <p class="vertical-text"> <i class="fa fa-arrow-left fa-fw"></i> Probabilidade </p>
+                    <table class="table" cellpadding="10">
+                        <tbody>
+                        <tr>
+                            <th bgcolor="orange"> 0 </th>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="yellow"> 0 </th>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="green"> 0 </td>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p align="center"> Impacto <i class="fa fa-arrow-right fa-fw"></i></p>
                 </div>
             </div>
         </div>
+
         <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    Pie Chart
+                    Matrix de Risco de Comunicação
                 </div>
                 <div class="card-body">
-                    <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Polar Area Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Line Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                    </canvas>
+                    <p class="vertical-text">  <i class="fa fa-arrow-left fa-fw"></i> Probabilidade </p>
+                    <table class="table" cellpadding="10">
+                        <tbody>
+                        <tr>
+                            <th bgcolor="orange"> 0 </th>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="yellow"> 0 </th>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                            <td bgcolor="red"> 0 </td>
+                        </tr>
+
+                        <tr>
+                            <th bgcolor="green"> 0 </th>
+                            <td bgcolor="green"> 0 </td>
+                            <td bgcolor="yellow"> 0 </td>
+                            <td bgcolor="orange"> 0 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p align="center"> Impacto <i class="fa fa-arrow-right fa-fw"></i></p>
                 </div>
             </div>
         </div>
