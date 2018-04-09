@@ -8,7 +8,7 @@ import { Risk } from './risk';
 @Injectable()
 
     export class RiskService{
-        private riskUrl = 'http://localhost:3000/riscos.json';
+        private riskUrl = 'http://localhost:3000/risk_docs';
 
         constructor(
             private http: Http
@@ -33,6 +33,19 @@ import { Risk } from './risk';
         createRisk(risk) {
 
             risk.severity = risk.probability_of_happen * risk.impact;
+            if (risk.severity >= 1) {
+                risk.severity_str = 'extremo';
+            }
+            if (risk.severity > 0.1 && risk.severity < 1){
+                risk.severity_str = 'alto';
+            }
+            if (risk.severity > 0.05 && risk.severity <= 0.09){
+                risk.severity_str = 'moderado';
+            }
+            if (risk.severity <= 0.05) {
+                risk.severity_str = 'baixo';
+            }
+
             let headers = new Headers({'Content-Type': 'application/json'});
             let options = new RequestOptions({ headers: headers});
 

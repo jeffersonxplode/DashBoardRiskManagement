@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
 
+
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
     // for development
@@ -40,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
     ],
     declarations: [AppComponent],
     providers: [AuthGuard, RiskService],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+
 })
 export class AppModule {}

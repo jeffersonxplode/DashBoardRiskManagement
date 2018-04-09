@@ -13,6 +13,13 @@ export class ChartsComponent implements OnInit {
         scaleShowVerticalLines: false,
         responsive: true
     };
+
+
+
+
+
+
+
     public barChartLabels: string[] = [
         '2006',
         '2007',

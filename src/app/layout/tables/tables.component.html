@@ -1,5 +1,15 @@
-<div [@routerTransition]>
+<div [@routerTransition] xmlns:filter="http://www.w3.org/1999/xhtml" xmlns:FilterPipe="http://www.w3.org/1999/xhtml">
     <app-page-header [heading]="'Lista de Riscos'" [icon]="'fa-table'"></app-page-header>
+
+        Escolha o nivel de risco:
+        <select [(ngModel)]="nivelrisco" class="form-control">
+            <option value="extremo"> Extremo </option>
+            <option value="alto"> Alto </option>
+            <option value="moderado"> Moderado </option>
+            <option value="baixo"> Baixo </option>
+            <option value=""> Todos </option>
+        </select>
+        <br>
         <div class="card mb-3">
             <div class="card-header">
                 Tabela de riscos
@@ -14,19 +24,23 @@
                         <th>Nivel de Risco</th>
                     </tr>
                     </thead>
+
                     <tbody>
-                        <tr *ngFor="let risk of risks" [ngClass]="{ 'extremo': risk.severity > 1,
+                        <tr *ngFor="let risk of (risks | filter:nivelrisco)" [ngClass]="{ 'extremo': risk.severity > 1,
                                                                     'alto':risk.severity < 0.9 && risk.severity > 0.1,
                                                                     'moderado':risk.severity > 0.05 && risk.severity <= 0.09,
                                                                     'baixo':risk.severity <= 0.05
-                                                                   }" >
+                                                                   }"  (click)="goToShow(risk)" class="" >
                                 <th> {{ risk.name }} </th>
                                 <td> {{ risk.probability_of_happen}} </td>
                                 <td> {{ risk.impact }} </td>
                                 <td> {{ risk.severity}} </td>
+
                         </tr>
+
                     </tbody>
                 </table>
+
             </div>
         </div>
 </div>

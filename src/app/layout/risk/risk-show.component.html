@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-xl-12">
+        <h2 class="page-header">
+            {{risk.name}}
+        </h2>
+    </div>
+</div>
+
+
+<div class="breadcrumb">
+
+    <li class="breadcrumb-item">
+        Probabilidade de acontecer
+    </li>
+    <li class="breadcrumb-item active">{{risk.probability_of_happen}}</li>
+
+
+    <li class="breadcrumb-item">
+        Impacto
+    </li>
+    <li class="breadcrumb-item active">{{risk.impact}}</li>
+
+    <li class="breadcrumb-item">
+        Nivel de Risco
+    </li>
+    <li class="breadcrumb-item active">{{risk.severity}}</li>
+
+    <li class="breadcrumb-item">
+        Categoria
+    </li>
+    <li class="breadcrumb-item active">{{risk.category}}</li>
+
+</div>
+
+
+
+<div class="row">
+    <div class="table">
+        <div class="card card-default">
+            <div class="card-header">
+                 Descrição do risco
+            </div>
+        </div>
+    </div>
+</div>
+
+<p> {{risk.description}} </p>
+
+
+<div class="row">
+    <div class="table">
+        <div class="card card-default">
+            <div class="card-header">
+                Tratamento do risco
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>{{risk.treatment}}</p>
